@@ -1,37 +1,55 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="mobilkimango.MainPage">
+             x:Class="mobilki.MainPage">
 
-    <Grid Padding="20" RowSpacing="15" RowDefinitions="*,*,*,*,*,*,*,*,*,*" >
+    <Grid Padding="20" RowSpacing="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
         <Label Text="ShoppingList"
-               FontSize="20"
+               FontSize="24"
                HorizontalOptions="Center"
                Grid.Row="0"
                Grid.ColumnSpan="2"/>
-        <Entry
-            Placeholder="Entry item"
+        <Entry x:Name="entryItem"
+               Placeholder="Entry item"
                Grid.Row="1"
                Grid.Column="0"/>
 
-        <Button
+        <Button x:Name="addButton"
                 Text="Add"
                 Grid.Row="1"
-                Grid.Column="1"
-                WidthRequest="80"
-                Margin="100,0,0,0"/>
-        <CollectionView 
-                Grid.Row="2"
-                Grid.RowSpan="5"    
-            Grid.ColumnSpan="2"
-                BackgroundColor="Aquamarine">
-            
+                Grid.Column="2"
+                Margin="60,0,0,0"/>
+        <CollectionView x:Name="itemsList"
+                        Grid.Row="2"
+                        Grid.ColumnSpan="2"
+                        Grid.RowSpan="2"
+                        BackgroundColor="Aquamarine">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding .}"
+                           FontSize="18"
+                           Padding="5"/>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
         </CollectionView>
-        <Button
+        <Button x:Name="deleteButton"
                 Text="Delete"
                 HorizontalOptions="End"
-                Grid.Row="7"
-                Grid.ColumnSpan="2"/>
+                HeightRequest="10"
+                Grid.Row="4"
+                Grid.ColumnSpan="2"
+                Padding="15"/>
     </Grid>
 
 </ContentPage>
