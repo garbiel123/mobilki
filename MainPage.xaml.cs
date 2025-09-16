@@ -1,24 +1,27 @@
-﻿namespace mobilkimango
+using System.Collections.ObjectModel;
+
+namespace mobilki
 {
+    
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        ObservableCollection<string> listaZakupow = new();
 
         public MainPage()
         {
             InitializeComponent();
+            itemsList.ItemsSource = listaZakupow;
         }
 
-        private void OnCounterClicked(object? sender, EventArgs e)
+        private void addButton_Clicked(object sender, EventArgs e)
         {
-            count++;
+            string tekst = entryItem.Text;
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            if (!string.IsNullOrEmpty(tekst))
+            {
+                listaZakupow.Add(tekst);
+                entryItem.Text = string.Empty;
+            }
         }
     }
 }
