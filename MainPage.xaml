@@ -29,17 +29,17 @@
                 Text="Add"
                 Grid.Row="1"
                 Grid.Column="2"
-                Margin="60,0,0,0"/>
+                Margin="60,0,0,0"
+                Clicked="addButton_Clicked"/>
         <CollectionView x:Name="itemsList"
                         Grid.Row="2"
                         Grid.ColumnSpan="2"
                         Grid.RowSpan="2"
-                        BackgroundColor="Aquamarine">
+                        BackgroundColor="Aquamarine"                        
+                    SelectionMode="Single">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Label Text="{Binding .}"
-                           FontSize="18"
-                           Padding="5"/>
+                    <Label Text="{Binding .}" FontSize="18" Padding="5"/>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
@@ -49,7 +49,8 @@
                 HeightRequest="10"
                 Grid.Row="4"
                 Grid.ColumnSpan="2"
-                Padding="15"/>
+                Padding="15"                
+                Clicked="deleteButton_Clicked"/>
     </Grid>
 
 </ContentPage>
