@@ -1,27 +1,34 @@
 using System.Collections.ObjectModel;
 
-namespace mobilki
+namespace mobilki;
+
+public partial class MainPage : ContentPage
 {
-    
-    public partial class MainPage : ContentPage
+    ObservableCollection<string> listaZakupow = new();
+
+    public MainPage()
     {
-        ObservableCollection<string> listaZakupow = new();
+        InitializeComponent();
+        itemsList.ItemsSource = listaZakupow;
+    }
 
-        public MainPage()
+    private void addButton_Clicked(object sender, EventArgs e)
+    {
+        string tekst = entryItem.Text?.Trim();
+
+        if (!string.IsNullOrEmpty(tekst))
         {
-            InitializeComponent();
-            itemsList.ItemsSource = listaZakupow;
+            listaZakupow.Add(tekst);
+            entryItem.Text = string.Empty;
         }
+    }
 
-        private void addButton_Clicked(object sender, EventArgs e)
+    private void deleteButton_Clicked(object sender, EventArgs e)
+    {
+        if (itemsList.SelectedItem is string wybranyElement)
         {
-            string tekst = entryItem.Text;
-
-            if (!string.IsNullOrEmpty(tekst))
-            {
-                listaZakupow.Add(tekst);
-                entryItem.Text = string.Empty;
-            }
+            listaZakupow.Remove(wybranyElement);
         }
     }
 }
+
