@@ -14,7 +14,7 @@ public partial class MainPage : ContentPage
 
     private void addButton_Clicked(object sender, EventArgs e)
     {
-        string tekst = entryItem.Text?.Trim();
+        string tekst = entryItem.Text;
 
         if (!string.IsNullOrEmpty(tekst))
         {
@@ -31,4 +31,5 @@ public partial class MainPage : ContentPage
         }
     }
 }
+
 
