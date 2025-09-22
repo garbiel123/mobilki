@@ -34,22 +34,18 @@
         <CollectionView x:Name="itemsList"
                         Grid.Row="2"
                         Grid.ColumnSpan="2"
-                        Grid.RowSpan="2"
-                        BackgroundColor="Aquamarine"                        
-                    SelectionMode="Single">
+                        Grid.RowSpan="2">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Label Text="{Binding .}" FontSize="18" Padding="5"/>
+                    <Label Text="{Binding .}" FontSize="18" Padding="5" TextColor="White" BackgroundColor="#E9B3FB"/>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
         <Button x:Name="deleteButton"
                 Text="Delete"
                 HorizontalOptions="End"
-                HeightRequest="10"
                 Grid.Row="4"
-                Grid.ColumnSpan="2"
-                Padding="15"                
+                Grid.ColumnSpan="2"               
                 Clicked="deleteButton_Clicked"/>
     </Grid>
 
